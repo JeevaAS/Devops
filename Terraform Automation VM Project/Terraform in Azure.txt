@@ -1,0 +1,88 @@
+Terraform 
+----------
+Terraform is a open source network
+Used for provisioning and managing cloud infrastructure
+Application code -->build test Environment-->Deploy to test Environment--->Test Application--->Destroy the Environment
+Using Iaas ( Infrastructure as a code)
+Using Harshicorp configuration language (HCL Code)
+
+Migration 
+Tracking & version control
+
+Terraform -->Create a new VM,DB-->Cloud
+Ansible -->Interior Desing -->Install Application-->On-Premise,cloud
+--Dev ,Test,UAT,Preprod,Production
+
+Installation 
+
+Step 1 :- Choco install terraform once it is done ( terraform -help)
+step 2 :- Install VS Code 
+Step 3 :- Writing Terraform code 
+Main.tf #provide all the code that is required to create infrasture
+Variables.tf #Provide variable parameter to 
+
+Create VM Using Terraform 
+---Resource group, virtual network ,subnet,Network security,virutal machine
+
+Basic VM Creation 
+
+--Open Azure portal
+--Click on VM --> create VM 
+
+Program:-
+Step 1 
+Terraform block
+--------------
+terraform {
+  required_providers {
+    azurerm ={
+        source = "hashicorp/azurerm"
+        version = "=3.37.0"
+    }
+  }
+}
+
+step 2
+#Create provided block
+--------------------
+provider "azurerm" {
+  features {
+    
+  "subscribtion_id": "xxxxxx-xxx-xxxx-xxxx-xxxxxxxxxx",  #click on subscbie option to get this id 
+  "client_id": "azure-cli-2022-xxxx",#go to AD--App Registration--add name terraform 
+  "client_secreate": "xxxxxx~xxxxxx~xxxxx",
+  "tenant_id": "xxxxx-xxxx-xxxxx-xxxx-xxxxx" #go to AD
+}
+  }
+
+Step 3 
+
+App Registration for the service account.
+
+Provide a IAM Access for this application 
+ Step 4 
+Create a Resource ( go to the terraform resoure website to type name copy paste and edit )
+
+Step 5 
+create a virtual Network (go to the terraform azure virtual network )
+
+Step 6 
+create a virtual Machine (go to the terraform azure virtual Machine )
+
+step 7
+
+Create a Network Interface
+Step 8 
+Create a azure security group
+Step 9 
+
+once above the step completed after open (CMD or Power shell) 
+Type a command ("terraform -help)
+Next type (Cd "File directory")
+
+Main commands:
+  init          Prepare your working directory for other commands
+  validate      Check whether the configuration is valid
+  plan          Show changes required by the current configuration
+  apply         Create or update infrastructure
+  destroy       Destroy previously-created infrastructure
